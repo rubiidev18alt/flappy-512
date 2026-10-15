@@ -17,8 +17,8 @@ or just boot the `flappy.img` that's already here. space to flap.
 
 `palette.asm` draws all 256 default colours, that's how I picked mine.
 
-## Score-outline experiment
+## Score renderer experiment
 
-The score renderer currently uses BIOS teletype output in mode 13h. A transparent background is the practical first target; a one-pixel black outline needs custom digit drawing and additional code-space recovery.
+The `score-outline-experiment` branch contains a small score-loop reordering experiment. It moves cursor positioning until after digit conversion and sets the teletype attribute once before printing the digits. This is intended as an experiment only; because this environment could not install NASM or QEMU, the candidate has not been assembled or boot-tested and must not be considered byte-saving or verified yet.
 
-No assembly/image changes are included yet: the working environment used for this experiment did not have NASM or QEMU installed, and the package repositories were unreachable. The concept image generated separately is not a runtime screenshot.
+A separate static concept image illustrates the desired transparent score with a one-pixel black outline. It is not a screenshot from the game or from QEMU.
