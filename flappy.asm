@@ -177,10 +177,6 @@ frame:
         push WORLD
         pop es
 
-        mov ah, 2
-        xor bx, bx
-        mov dx, 0x0113
-        int 0x10
         mov ax, [col]
         sub ax, 143
         jns .score
@@ -194,10 +190,14 @@ frame:
         inc cx
         test ax, ax
         jnz .digit
+        mov ah, 2
+        xor bx, bx
+        mov dx, 0x0113
+        int 0x10
+        mov bx, 15
 .print: pop ax
         add al, '0'
         mov ah, 0x0E
-        mov bx, 15
         int 0x10
         loop .print
 
