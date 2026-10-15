@@ -16,3 +16,9 @@ or just boot the `flappy.img` that's already here. space to flap.
 `stages/` has the game at each step, starting from the first 322 byte version. `bug.asm` is the one that showed a score of 153 before I pressed anything, `slow.asm` runs on the default 18.2 Hz timer.
 
 `palette.asm` draws all 256 default colours, that's how I picked mine.
+
+## Score-outline experiment
+
+The score renderer currently uses BIOS teletype output in mode 13h. A transparent background is the practical first target; a one-pixel black outline needs custom digit drawing and additional code-space recovery.
+
+No assembly/image changes are included yet: the working environment used for this experiment did not have NASM or QEMU installed, and the package repositories were unreachable. The concept image generated separately is not a runtime screenshot.
